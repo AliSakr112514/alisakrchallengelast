@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alisakrchallenge
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: alisakrchallenge
+  template:
+    metadata:
+      labels:
+        app: alisakrchallenge
+    spec:
+      containers:
+        - name: alisakrchallenge
+          image: alisakr96/alisakrchallenge_app
+          resources:
+            limits:
+              memory: "150Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
